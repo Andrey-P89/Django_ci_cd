@@ -6,7 +6,7 @@ on:
 
 jobs:
   testing:
-    run-on: ubuntu-20.04
+    runs-on: ubuntu-20.04
     env:
       SECRET_KEY: ${{ secret.SECRET }}
       DEBUG: ${{ secret.DEBUG_MODE }}
