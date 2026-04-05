@@ -8,15 +8,15 @@ jobs:
   testing:
     runs-on: ubuntu-20.04
     env:
-      SECRET_KEY: ${{ secret.SECRET }}
-      DEBUG: ${{ secret.DEBUG_MODE }}
-      ALLOWED: ${{ secret.ALLOWED_HOSTS }}
-      DB_ENGINE: ${{ secret.DB_ENGINE }}
-      DB_NAME: ${{ secret.DB_NAME }}
-      DB_USER: ${{ secret.DB_USER }}
-      DB_PASSWORD: ${{ secret.DB_PASSWORD }}
-      DB_HOST: ${{ secret.DB_HOST }}
-      DB_PORT: ${{ secret.DB_PORT }}
+      SECRET_KEY: ${{ secrets.SECRET }}
+      DEBUG: ${{ secrets.DEBUG_MODE }}
+      ALLOWED: ${{ secrets.ALLOWED_HOSTS }}
+      DB_ENGINE: ${{ secrets.DB_ENGINE }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_PORT: ${{ secrets.DB_PORT }}
     services:
       postgresql_main:
         image: postgres:12
@@ -39,7 +39,7 @@ jobs:
       - name: Установка Python
         uses: actions/setup-python@v4
         with:
-          - python-version: 3.10
+          python-version: 3.10
 
       - name: Установить зависимости
         run: pip install -r requirements.txt
